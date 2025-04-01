@@ -1,0 +1,108 @@
+/* Reset basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
+.header {
+    background-color: #002f6c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.header h1 {
+    font-size: 36px;
+}
+
+.header .site-name {
+    font-size: 16px;
+}
+
+.header input[type="search"] {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.main-content {
+    padding: 20px;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.route-info h2 {
+    font-size: 24px;
+    color: #002f6c;
+    margin-bottom: 10px;
+}
+
+.route-info h2 span {
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.route-info .description {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.details h3 {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.footer {
+    background-color: #002f6c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer .additional-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.footer .additional-info .left p {
+    margin-bottom: 5px;
+}
+
+.footer .additional-info .right img {
+    max-width: 200px;
+    height: auto;
+}
+
+.footer .bottom img {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
+}
+
+.footer .bottom {
+    margin-top: 20px;
+    background-color: #002f6c;
+    padding: 10px;
+}
