@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Корзина | ЦКАД</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cart-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .cart-heading {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .cart-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #212121;
+        }
+
+        .cart-details {
+            font-size: 14px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .cart-remove {
+            background-color: #f4701a;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 96px;
+            height: 36px;
+        }
+
+        .cart-remove:hover {
+            background-color: #d95e0e;
+        }
+
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 32px;
+            gap: 16px;
+        }
+
+        .total-distance {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .btn-clear, .btn-checkout {
+            background-color: #f4701a;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .btn-clear:hover, .btn-checkout:hover {
+            background-color: #d95e0e;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <img src="http://127.0.0.1:9000/routes/logo.svg" alt="Логотип">
+        </div>
+        <nav>
+            <ul>
+
+                <li><a href="/">Главная</a></li>
+                <li><a href="/cart">Заявки на проезд</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="cart-container">
+    <h1 class="cart-heading">Ваша корзина</h1>
+
+    <div id="cart-list"></div>
+
+    <div class="cart-actions" id="cart-actions" style="display: none;">
+        <div class="total-distance" id="total-distance"></div>
+        <div>
+            <button class="btn-clear" id="clear-cart">Очистить всё</button>
+            <button class="btn-checkout">Оформить заказ</button>
+        </div>
+    </div>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cartList = document.getElementById('cart-list');
+        const cartActions = document.getElementById('cart-actions');
+        const totalDistanceEl = document.getElementById('total-distance');
+        const clearBtn = document.getElementById('clear-cart');
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function parseDistance(details) {
+            const match = details.match(/([\d,]+)\s*км/);
+            if (!match) return 0;
+            return parseFloat(match[1].replace(',', '.')) || 0;
+        }
+
+        function updateTotalDistance() {
+            const total = cart.reduce((sum, item) => sum + parseDistance(item.details), 0);
+            totalDistanceEl.textContent = `Общая протяжённость: ${total.toFixed(1)} км`;
+        }
+
+        function updateCartDisplay() {
+            cartList.innerHTML = '';
+            if (cart.length === 0) {
+                cartList.innerHTML = '<p>Корзина пуста.</p>';
+                cartActions.style.display = 'none';
+                return;
+            }
+
+            cartActions.style.display = 'flex';
+            updateTotalDistance();
+
+            cart.forEach((item, index) => {
+                const el = document.createElement('div');
+                el.className = 'cart-item';
+                el.innerHTML = `
+                    <div class="cart-info">
+                        <div class="cart-title">${item.title}</div>
+                        <div class="cart-details">${item.details}</div>
+                    </div>
+                    <button class="cart-remove" data-index="${index}">Удалить</button>
+                `;
+                cartList.appendChild(el);
+            });
+
+            document.querySelectorAll('.cart-remove').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const i = btn.dataset.index;
+                    cart.splice(i, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartDisplay();
+                });
+            });
+        }
+
+        clearBtn.addEventListener('click', () => {
+            cart = [];
+            localStorage.removeItem('cart');
+            updateCartDisplay();
+        });
+
+        updateCartDisplay();
+    });
+</script>
+</body>
+</html>

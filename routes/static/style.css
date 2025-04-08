@@ -1,0 +1,473 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #f4701a;
+    text-decoration: underline;
+}
+
+#content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.left-section {
+    flex: 1;
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#routes {
+    padding: 20px;
+}
+
+.route-item-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top:50px;
+}
+
+.route-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 16px 24px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.route-item span.arrow {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.route-item span.route-name {
+    flex-grow: 1;
+}
+
+.route-item span.details {
+    font-size: 14px;
+    color: #777;
+}
+
+.route-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Цвета для разных блоков */
+.route-item.peach {
+    background-color: #f8d7da;
+    color: black;
+}
+
+.route-item.blue {
+    background-color: #3a8bff;
+    color: white;
+}
+
+.route-item.turquoise {
+    background-color: #1de9b6;
+    color: black;
+}
+
+.route-item.orange {
+    background-color: #ff5722;
+    color: white;
+}
+
+.route-item.light-blue {
+    background-color: #00bcd4;
+    color: white;
+}
+
+#mapid {
+    position: relative;
+    width: 600px;
+    height: 600px;
+}
+
+#circular-map {
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    margin: 10px 0;
+    padding: 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #f4701a;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #d35a0a;
+}
+.title-ckad {
+    font-size: 48px;
+    font-weight: 900;
+    color: #424040; /* темно-серый */
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    line-height: 1.1;
+}
+
+.subtitle-ckad {
+    font-size: 24px;
+    font-weight: 400;
+    color: #f26522; /* оранжевый */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.map-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: #424040;
+    margin: 40px 0 20px 0;
+}
+.ckad-heading {
+    margin-bottom: 30px;
+    line-height: 1.1;
+}
+
+.title-ckad {
+    font-size: 48px;
+    font-weight: 900;
+    color: #424040;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.subtitle-ckad {
+    font-size: 24px;
+    font-weight: 400;
+    color: #f26522;
+    text-transform: uppercase;
+    margin-left: 0px; /* 👈 смещаем влево */
+}
+
+.ckad-row-heading {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    margin-top: 0px;
+    margin-left: 200px;
+    flex-wrap: nowrap; /* запрещает перенос строк */
+    white-space: nowrap; /* не даёт тексту переноситься */
+}
+
+.ckad-title {
+    font-size: 64px;
+    font-weight: 900;
+    color: #424040;
+    text-transform: uppercase;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.ckad-subtitle {
+    font-size: 24px;
+    font-weight: 400;
+    color: #f26522;
+    text-transform: uppercase;
+    font-family: 'Roboto', Arial, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.route-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.route-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    border-radius: 2px;
+    margin-right: 15px;
+    flex-shrink: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Цвета */
+.route-button.peach   { background-color: #f7cfc4; }
+.route-button.cyan    { background-color: #0099a8; }
+.route-button.yellow  { background-color: #ffc107; }
+.route-button.red     { background-color: #e8501f; }
+.route-button.blue    { background-color: #1e398e; }
+
+.route-text {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.route-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    font-family: 'Roboto', Arial, sans-serif;
+    margin-bottom: 3px;
+}
+
+.route-details {
+    font-size: 14px;
+    color: #666;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+.ckad-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.ckad-left {
+    flex: 1;
+    min-width: 340px;
+}
+
+.ckad-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 340px;
+}
+
+#mapid {
+    width: 700px;
+    height: 700px;
+    max-width: 100%;
+}
+
+.route-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.route-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    border-radius: 2px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.route-button.peach   { background-color: #f7cfc4; }
+.route-button.cyan    { background-color: #0099a8; }
+.route-button.yellow  { background-color: #ffc107; }
+.route-button.red     { background-color: #e8501f; }
+.route-button.blue    { background-color: #1e398e; }
+
+.route-text .route-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    font-family: 'Roboto', Arial, sans-serif;
+    margin-bottom: 3px;
+}
+
+.route-text .route-details {
+    font-size: 14px;
+    color: #666;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.route-item.hovered {
+    outline: 2px solid #999;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.cart-icon {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: #f4701a;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.cart-icon:hover {
+    background-color: #d85e0d;
+}
+
+.cart-icon svg {
+    pointer-events: none;
+}
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: white;
+    color: #f4701a;
+    font-size: 14px;
+    font-weight: bold;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+.comfort-widget {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+}
+
+.comfort-logo {
+    width: 160px;
+    height: auto;
+    margin-bottom: 0; /* убираем отступ */
+}
+
+.comfort-text {
+    font-size: 14px;
+    color: #424040;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1;
+    margin: -50px 0 0 0; /* минимальный верхний отступ, всё остальное 0 */
+}
+
+.route-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.route-text {
+    flex-grow: 1;
+}
+
+.route-pay-btn {
+    background-color: #f4701a;
+    border: none;
+    border-radius: 8px;
+    padding: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+}
+
+.route-pay-btn:hover {
+    background-color: #d65d0c;
+}
+
+.route-pay-btn svg {
+    pointer-events: none;
+}
+
+.route-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;     /* убираем подчеркивание */
+  color: inherit;            /* используем текущий цвет текста */
+  width: 100%;               /* ссылка занимает всю ширину */
+  height: 100%;              /* и всю высоту родителя */
+}
+.route-link:hover {
+  background-color: #f5f5f5; /* при наведении меняем фон */
+  border-radius: 8px;
+}

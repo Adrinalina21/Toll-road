@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>ЦКАД</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <img src="http://127.0.0.1:9000/routes/logo.svg" alt="Логотип">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">О ЦКАД</a></li>
+                <li><a href="/cart">Заявки на проезд</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <div class="ckad-layout">
+        <!-- Левая часть -->
+        <div class="ckad-left">
+            <div class="ckad-row-heading">
+                <span class="ckad-title">ЦКАД</span>
+                <span class="ckad-subtitle">ЦЕНТРАЛЬНАЯ КОЛЬЦЕВАЯ АВТОМОБИЛЬНАЯ ДОРОГА</span>
+            </div>
+
+            <div class="routes-list">
+                <div class="route-item" data-id="1">
+                    <a href="/route_detail.html?route_id=1" class="route-link">
+                    <span class="route-button peach">&gt;</span>
+                    <div class="route-text">
+                        <div class="route-title">ПУСКОВОЙ КОМПЛЕКС №1</div>
+                        <div class="route-details">от М-4 до 11 км А-107 — 49,5 км</div>
+                    </div>
+                    </a>
+                    <button class="route-pay-btn" title="Добавить в корзину">
+        <svg viewBox="0 0 24 24" fill="white" width="18" height="18">
+            <path d="M7 18c-1.104 0-2 .896-2 2s.896 2 2
+            2 2-.896 2-2-.896-2-2-2zm10 0c-1.104
+            0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zM7.334
+            6l.947 2H19a1 1 0 0 1 .962 1.273l-1.8
+            6.35A2 2 0 0 1 16.24 16H9.16a2 2 0 0
+            1-1.921-1.447L4.272 4H2V2h3a1 1 0 0
+            1 .958.713L6.46 6h.874z"/>
+        </svg>
+    </button>
+                </div>
+                <div class="route-item" data-id="2">
+                    <a href="/route_detail.html?route_id=2" class="route-link">
+                    <span class="route-button cyan">&gt;</span>
+                    <div class="route-text">
+                        <div class="route-title">ПУСКОВОЙ КОМПЛЕКС №3</div>
+                        <div class="route-details">от М-11 до М-7 — 105,9 км</div>
+                    </div>
+                    </a>
+                    <button class="route-pay-btn" title="Добавить в корзину">
+        <svg viewBox="0 0 24 24" fill="white" width="18" height="18">
+            <path d="M7 18c-1.104 0-2 .896-2 2s.896 2 2
+            2 2-.896 2-2-.896-2-2-2zm10 0c-1.104
+            0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zM7.334
+            6l.947 2H19a1 1 0 0 1 .962 1.273l-1.8
+            6.35A2 2 0 0 1 16.24 16H9.16a2 2 0 0
+            1-1.921-1.447L4.272 4H2V2h3a1 1 0 0
+            1 .958.713L6.46 6h.874z"/>
+        </svg>
+    </button>
+                </div>
+                <div class="route-item" data-id="3">
+                    <a href="/route_detail.html?route_id=3" class="route-link">
+                    <span class="route-button yellow">&gt;</span>
+                    <div class="route-text">
+                        <div class="route-title">ПУСКОВОЙ КОМПЛЕКС №4</div>
+                        <div class="route-details">от М-7 до М-4 — 96,9 км</div>
+                    </div>
+                    </a>
+                    <button class="route-pay-btn" title="Добавить в корзину">
+        <svg viewBox="0 0 24 24" fill="white" width="18" height="18">
+            <path d="M7 18c-1.104 0-2 .896-2 2s.896 2 2
+            2 2-.896 2-2-.896-2-2-2zm10 0c-1.104
+            0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zM7.334
+            6l.947 2H19a1 1 0 0 1 .962 1.273l-1.8
+            6.35A2 2 0 0 1 16.24 16H9.16a2 2 0 0
+            1-1.921-1.447L4.272 4H2V2h3a1 1 0 0
+            1 .958.713L6.46 6h.874z"/>
+        </svg>
+    </button>
+                </div>
+                <div class="route-item" data-id="4">
+                    <a href="/route_detail.html?route_id=4" class="route-link">
+                    <span class="route-button red">&gt;</span>
+                    <div class="route-text">
+                        <div class="route-title">ПУСКОВОЙ КОМПЛЕКС №5</div>
+                        <div class="route-details">«Звенигородский ход» — 76,4 км</div>
+                    </div>
+                    </a>
+                    <button class="route-pay-btn" title="Добавить в корзину">
+        <svg viewBox="0 0 24 24" fill="white" width="18" height="18">
+            <path d="M7 18c-1.104 0-2 .896-2 2s.896 2 2
+            2 2-.896 2-2-.896-2-2-2zm10 0c-1.104
+            0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zM7.334
+            6l.947 2H19a1 1 0 0 1 .962 1.273l-1.8
+            6.35A2 2 0 0 1 16.24 16H9.16a2 2 0 0
+            1-1.921-1.447L4.272 4H2V2h3a1 1 0 0
+            1 .958.713L6.46 6h.874z"/>
+        </svg>
+    </button>
+                </div>
+                <div class="route-item" data-id="5">
+                    <a href="/route_detail.html?route_id=5" class="route-link">
+                    <span class="route-button blue">&gt;</span>
+                    <div class="route-text">
+                        <div class="route-title">ПУСКОВОЙ КОМПЛЕКС №3-5</div>
+                        <div class="route-details">от М-10 до М-11 — 7,8 км</div>
+                    </div>
+                    </a>
+                    <button class="route-pay-btn" title="Добавить в корзину">
+        <svg viewBox="0 0 24 24" fill="white" width="18" height="18">
+            <path d="M7 18c-1.104 0-2 .896-2 2s.896 2 2
+            2 2-.896 2-2-.896-2-2-2zm10 0c-1.104
+            0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zM7.334
+            6l.947 2H19a1 1 0 0 1 .962 1.273l-1.8
+            6.35A2 2 0 0 1 16.24 16H9.16a2 2 0 0
+            1-1.921-1.447L4.272 4H2V2h3a1 1 0 0
+            1 .958.713L6.46 6h.874z"/>
+        </svg>
+    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая часть -->
+        <div class="ckad-right">
+            <div id="mapid">
+                <svg id="circular-map" width="700" height="700" viewBox="0 0 700 700">
+  <image href="http://127.0.0.1:9000/routes/map.svg" x="0" y="0" width="700" height="700" />
+
+  <!-- Пять равных дуг ближе к краю -->
+
+  <!-- Участок 1 — персиковый -->
+  <path id="path1" data-id="1" d="M 350,10 A 340,340 0 0,1 619.1,148.6" fill="none" stroke="#f7cfc4" stroke-width="16"/>
+
+  <!-- Участок 2 — бирюзовый -->
+  <path id="path2" data-id="2" d="M 619.1,148.6 A 340,340 0 0,1 680,350" fill="none" stroke="#0099a8" stroke-width="16"/>
+
+  <!-- Участок 3 — жёлтый -->
+  <path id="path3" data-id="3" d="M 680,350 A 340,340 0 0,1 619.1,551.4" fill="none" stroke="#ffc107" stroke-width="16"/>
+
+  <!-- Участок 4 — красно-оранжевый -->
+  <path id="path4" data-id="4" d="M 619.1,551.4 A 340,340 0 0,1 350,690" fill="none" stroke="#e8501f" stroke-width="16"/>
+
+  <!-- Участок 5 — тёмно-синий -->
+  <path id="path5" data-id="5" d="M 350,690 A 340,340 0 0,1 350,10" fill="none" stroke="#1e398e" stroke-width="16"/>
+</svg>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'script.js' %}"></script>
+<a href="/cart" class="cart-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28">
+        <path d="M7 18c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm10
+        0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zM7.334 6l.947
+        2H19a1 1 0 0 1 .962 1.273l-1.8 6.35A2 2 0 0 1 16.24 16H9.16a2
+        2 0 0 1-1.921-1.447L4.272 4H2V2h3a1 1 0 0 1 .958.713L6.46
+        6h.874z"/>
+    </svg>
+    <span class="cart-count">0</span>
+</a>
+<div class="comfort-widget">
+    <img src="http://127.0.0.1:9000/routes/logo.png" alt="Логотип" class="comfort-logo">
+    <p class="comfort-text">Для вашего комфорта</p>
+</div>
+
+</body>
+</html>

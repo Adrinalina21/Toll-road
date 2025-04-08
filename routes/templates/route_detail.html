@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Детали маршрута | ЦКАД</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .route-detail .text-block {
+            background-color: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        ul {
+    list-style: none;
+    padding-left: 0;
+}
+.footer-image {
+    width: 100%;
+    margin-top: 0px;
+    margin-left: 250px;
+}
+
+.footer-image img {
+    display: block;
+    height: auto;
+    object-fit: cover;
+}
+
+
+        .btn-orange {
+            display: inline-block;
+            background-color: #f4701a;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .mini-map-wrapper svg {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <img src="http://127.0.0.1:9000/routes/logo.svg" alt="Логотип">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="#transponder">Заявки на проезд</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="route-detail">
+    <div class="container" style="display: flex; gap: 40px; align-items: flex-start;">
+        <div style="flex: 2;">
+            <div class="text-block">
+                <h1 id="route-title">Маршрут</h1>
+                <p class="route-subinfo" id="route-details"></p>
+                <p class="route-description" id="route-description"></p>
+                <p class="route-notes" id="route-notes"></p>
+            </div>
+
+            <div class="text-block">
+                <h3>О проекте</h3>
+                <p><strong>ЦКАД</strong> – это один из ключевых элементов транспортной системы столицы, который разгружает МКАД и дорожную сеть Подмосковья от транзитного транспорта. Трасса проходит по территории Подмосковья в 50 км от МКАД. Протяжённость – 336 км, из которых на платной основе эксплуатируются 260 км.</p>
+            </div>
+
+            <div class="text-block">
+                <h3>Описание участка</h3>
+                <p>Новый участок состоит из отрезка в 12 километров и 11-километровой реконструированной части дороги А-107 (Московское малое кольцо). Движение организовано в две полосы в каждую сторону. Везде есть освещение, барьерное ограждение. Максимальная скорость автомобилей - 100 км/ч.</p>
+            </div>
+
+            <div class="text-block">
+                <h3>Инфраструктура</h3>
+                <p>На новой трассе сделано пять транспортных развязок, четыре надземных и подземный пешеходные переходы и три экопрохода для пропуска диких животных. Вдоль дороги установлены светодиодные светильники, которые снижают затраты на ее эксплуатацию.</p>
+            </div>
+
+           <div class="text-block">
+    <h3>Преимущества</h3>
+    <ul class="custom-list">
+        <li>Качественное и чистое покрытие</li>
+        <li>Бесперебойное освещение и множество световых указателей</li>
+        <li>
+            <img src="http://127.0.0.1:9000/routes/gas.png" alt="Заправка" width="20" height="20" style="vertical-align: middle; margin-right: 8px;">
+            3 заправки
+        </li>
+        <li>
+            <img src="http://127.0.0.1:9000/routes/speed.png" alt="Ограничение скорости" width="20" height="20" style="vertical-align: middle; margin-right: 8px;">
+            Максимальная скорость
+        </li>
+    </ul>
+</div>
+
+        </div>
+
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+            <div class="text-block">
+                <h4>Мини-карта</h4>
+                <div class="mini-map-wrapper">
+            <svg viewBox="0 0 700 700" width="400" height="400">
+    <!-- Фоновое изображение карты -->
+    <image href="http://127.0.0.1:9000/routes/map.svg" x="0" y="0" width="700" height="700" />
+
+    <!-- Путь 1 (оранжевый) -->
+    <path id="path1" data-id="1"
+          d="M 350,25 A 325,325 0 0,1 675,350"
+          fill="none" stroke="#f7cfc4" stroke-width="24" stroke-linecap="round" />
+
+    <!-- Путь 2 (синий) -->
+    <path id="path2" data-id="2"
+          d="M 675,350 A 325,325 0 0,1 350,675"
+          fill="none" stroke="#0099a8" stroke-width="24" stroke-linecap="round" />
+
+    <!-- Путь 3 (зелёный) -->
+    <path id="path3" data-id="3"
+          d="M 350,675 A 325,325 0 0,1 25,350"
+          fill="none" stroke="#ffc107" stroke-width="24" stroke-linecap="round" />
+
+    <!-- Путь 4 (жёлтый) -->
+    <path id="path4" data-id="4"
+          d="M 25,350 A 325,325 0 0,1 135,85"
+          fill="none" stroke="#e8501f" stroke-width="24" stroke-linecap="round" />
+
+    <!-- Путь 5 (тёмно-синий) -->
+    <path id="path5" data-id="5"
+          d="M 135,85 A 325,325 0 0,1 350,25"
+          fill="none" stroke="#1e398e" stroke-width="24" stroke-linecap="round" />
+</svg>
+
+                </div>
+            </div>
+
+            <div class="text-block">
+                <h4>Фото участка</h4>
+                <img src="http://127.0.0.1:9000/routes/2.png" alt="Фото участка" style="width: 100%; border-radius: 12px;">
+            </div>
+        </div>
+    </div>
+    <footer class="footer-image">
+    <img src="http://127.0.0.1:9000/routes/tit.png" alt="tit" />
+</footer>
+
+</main>
+
+<script>
+const routesData = {
+    1: {
+        title: 'ПУСКОВОЙ КОМПЛЕКС №1',
+        details: 'От М-4 до 11 км А-107 — 49,5 км',
+        description: 'Важный участок с высокой пропускной способностью, обслуживает ключевые направления.',
+        notes: 'Этот участок включает в себя несколько ключевых транспортных узлов.'
+    },
+    2: {
+        title: 'ПУСКОВОЙ КОМПЛЕКС №3',
+        details: 'От М-11 до М-7 — 105,9 км',
+        description: 'Маршрут по ключевому участку, важен для транзитного движения.',
+        notes: 'Этот участок проходит через несколько ключевых транспортных узлов.'
+    },
+    3: {
+        title: 'ПУСКОВОЙ КОМПЛЕКС №4',
+        details: 'От М-7 до М-4 — 96,9 км',
+        description: 'Транспортный коридор, соединяющий крупные города.',
+        notes: 'Участок с высокой интенсивностью движения.'
+    },
+    4: {
+        title: 'ПУСКОВОЙ КОМПЛЕКС №5',
+        details: '«Звенигородский ход» — 76,4 км',
+        description: 'Важный обходной путь для грузовых автомобилей.',
+        notes: 'Предназначен для разгрузки центральных районов.'
+    },
+    5: {
+        title: 'ПУСКОВОЙ КОМПЛЕКС №3-5',
+        details: 'От М-10 до М-11 — 7,8 км',
+        description: 'Краткий маршрут, обеспечивающий связку между крупными шоссе.',
+        notes: 'Обслуживает малый поток транспорта.'
+    }
+};
+
+const urlParams = new URLSearchParams(window.location.search);
+const routeId = urlParams.get('route_id');
+const route = routesData[routeId];
+
+if (route) {
+    document.getElementById('route-title').textContent = route.title;
+    document.getElementById('route-details').textContent = `Отрезок: ${route.details}`;
+    document.getElementById('route-description').innerHTML = `<strong>Описание:</strong> ${route.description}`;
+    document.getElementById('route-notes').innerHTML = `<strong>Примечания:</strong> ${route.notes}`;
+
+    // Подсветка сегмента на мини-карте
+    const allPaths = document.querySelectorAll('.mini-map-wrapper path');
+    allPaths.forEach(p => p.setAttribute('stroke-width', '0'));
+    const active = document.querySelector(`.mini-map-wrapper path[data-id="${routeId}"]`);
+    if (active) active.setAttribute('stroke-width', '24');
+}
+</script>
+</body>
+</html>
